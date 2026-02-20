@@ -1,13 +1,15 @@
 #include <stdio.h>
 
-size_t my_strlen(const char *str) {
-    const char *s = str;
-    while (*s) ++s;
-    return s - str;
+char* my_strcpy(char *dest, const char *src) {
+    char *ptr = dest;
+    while ((*ptr++ = *src++));
+    return dest;
 }
 
 int main() {
-    const char *testStr = "Hello, World!";
-    printf("Length of '%s' is %zu\n", testStr, my_strlen(testStr));
+    char dest[50];
+    const char *src = "Hello, World!";
+    my_strcpy(dest, src);
+    printf("Copied string: %s\n", dest);
     return 0;
 }
